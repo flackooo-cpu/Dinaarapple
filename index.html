@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinar Apple</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="platform-selection">
+        <h1>Dinar Apple</h1>
+        <h2>Select Your Platform</h2>
+        <button class="platform-btn" data-platform="1xBet">1xBet</button>
+        <button class="platform-btn" data-platform="Linebet">Linebet</button>
+    </div>
+
+    <div class="container hidden" id="id-input">
+        <h2>Enter Your Player ID</h2>
+        <input type="text" id="player-id" placeholder="Enter your ID">
+        <button id="start-game-btn">Start Dinar Apple</button>
+    </div>
+
+    <div class="container hidden" id="game-container">
+        <h2 id="level-text">Level 1 (x1.23)</h2>
+        <div id="game-board"></div>
+        <button id="generate-btn">Generate</button>
+        <p id="message"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

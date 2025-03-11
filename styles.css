@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('Images/wex.png') no-repeat center center fixed;
+    background-size: cover;
+    color: black;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 🌟 Horizontal Alignment for Apples */
+#game-board {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between apples */
+    margin-top: 20px;
+}
+
+.apple img {
+    width: 80px; /* Adjust apple size */
+    height: auto;
+}
