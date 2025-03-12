@@ -48,10 +48,10 @@ button {
 
 /* Style for Bad Apples (non-winning apples) */
 .apple.bad-apple img {
-    content: url('Images/bad-apple.png');
+    /* Custom style for bad apples if needed */
 }
 
-/* Style for Good Apple (winning apple) */
+/* Style for Winning Apple (Good Apple) */
 .apple.winning-apple img {
-    content: url('Images/good-apple.png');
+    /* Custom style for winning apple if needed */
 }
