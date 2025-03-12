@@ -36,22 +36,24 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    background-size: cover;
 }
 
-/* Ensures img tags fill the apple divs */
 .apple img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Maintain aspect ratio */
+    width: 80px; /* Adjust apple size */
+    height: auto;
 }
 
 /* Style for Bad Apples (non-winning apples) */
-.apple.bad-apple img {
-    /* Custom style for bad apples if needed */
+.apple.bad-apple {
+    background-image: url('Images/bad-apple.png');
+    background-size: cover;
+    background-position: center;
 }
 
-/* Style for Winning Apple (Good Apple) */
-.apple.good-apple img {
-    /* Custom style for winning apple if needed */
+/* Style for Good Apple (winning apple) */
+.apple.winning-apple {
+    background-image: url('Images/good-apple.png');
+    background-size: cover;
+    background-position: center;
 }
