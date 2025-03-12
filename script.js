@@ -74,16 +74,23 @@ function nextLevel() {
         const apple = document.createElement("div");
         apple.classList.add("apple");
 
+        const img = document.createElement("img");
+
         // Check if it's the winning apple
         if (i === winningIndex) {
             apple.dataset.winning = "true";
-            apple.innerHTML = "<img src='images/good-apple.png' alt='Apple' onerror='this.onerror=null; this.src=\"images/fallback-good-apple.png\"' />";
+            img.src = 'images/good-apple.png'; // Winning apple image
+            img.alt = 'Good Apple';
+            img.onerror = function() { this.src = 'images/fallback-good-apple.png'; }; // Fallback image
         } else {
-            apple.innerHTML = "<img src='images/bad-apple.png' alt='Bad Apple' onerror='this.onerror=null; this.src=\"images/fallback-bad-apple.png\"' />";
+            img.src = 'images/bad-apple.png'; // Bad apple image
+            img.alt = 'Bad Apple';
+            img.onerror = function() { this.src = 'images/fallback-bad-apple.png'; }; // Fallback image
             apple.classList.add("bad-apple");  // Optional: special class for bad apples
         }
 
-        gameBoard.appendChild(apple);
+        apple.appendChild(img); // Add the image to the apple div
+        gameBoard.appendChild(apple); // Add the apple div to the game board
     }
 }
 
@@ -96,7 +103,10 @@ generateBtn.addEventListener("click", () => {
     apples.forEach(apple => {
         if (!revealed && apple.dataset.winning === "true") {
             apple.classList.add("revealed");
-            apple.innerHTML = "<img src='images/good-apple.png' alt='Apple' onerror='this.onerror=null; this.src=\"images/fallback-good-apple.png\"' />";  // Winning apple shown
+            const img = apple.querySelector("img");
+            img.src = 'images/good-apple.png';  // Ensure the winning apple is shown
+            img.alt = 'Winning Apple';
+            img.onerror = function() { this.src = 'images/fallback-good-apple.png'; }; // Fallback image
             revealed = true;
         }
     });
