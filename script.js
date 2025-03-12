@@ -79,18 +79,30 @@ function nextLevel() {
         // Check if it's the winning apple
         if (i === winningIndex) {
             apple.dataset.winning = "true";
-            img.src = 'images/good-apple.png'; // Good apple image
+            img.src = 'images/good-apple.png'; // Set the good apple image source
             img.alt = 'Good Apple';
-            img.onerror = function() { this.src = 'images/fallback-good-apple.png'; }; // Fallback image
+            img.onload = () => {
+                console.log("Good Apple loaded successfully");
+            };
+            img.onerror = function() { 
+                console.error("Good Apple image failed to load!");
+                this.src = 'images/fallback-good-apple.png'; // Fallback if image fails to load
+            };
         } else {
-            img.src = 'images/bad-apple.png'; // Bad apple image
+            img.src = 'images/bad-apple.png'; // Set the bad apple image source
             img.alt = 'Bad Apple';
-            img.onerror = function() { this.src = 'images/fallback-bad-apple.png'; }; // Fallback image
+            img.onload = () => {
+                console.log("Bad Apple loaded successfully");
+            };
+            img.onerror = function() {
+                console.error("Bad Apple image failed to load!");
+                this.src = 'images/fallback-bad-apple.png'; // Fallback if image fails to load
+            };
             apple.classList.add("bad-apple"); // Optional: special class for bad apples
         }
 
-        apple.appendChild(img); // Add the image to the apple div
-        gameBoard.appendChild(apple); // Add the apple div to the game board
+        apple.appendChild(img); // Append the image to the apple div
+        gameBoard.appendChild(apple); // Append the apple div to the game board
     }
 }
 
@@ -106,7 +118,13 @@ generateBtn.addEventListener("click", () => {
             const img = apple.querySelector("img");
             img.src = 'images/good-apple.png'; // Ensure the winning apple is shown
             img.alt = 'Winning Apple';
-            img.onerror = function() { this.src = 'images/fallback-good-apple.png'; }; // Fallback image
+            img.onload = () => {
+                console.log("Winning Apple loaded successfully");
+            };
+            img.onerror = function() { 
+                console.error("Winning Apple image failed to load!");
+                this.src = 'images/fallback-good-apple.png'; // Fallback if image fails to load
+            };
             revealed = true;
         }
     });
