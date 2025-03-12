@@ -36,24 +36,23 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-size: cover;
+    position: relative;
+    /* Remove background size from here */
 }
 
+/* Ensure img tags are centered properly inside the apple div */
 .apple img {
-    width: 80px; /* Adjust apple size */
-    height: auto;
+    width: 100%; /* Let the image take the full width of the div */
+    height: 100%; /* Let the image take the full height of the div */
+    object-fit: contain; /* Maintain aspect ratio without stretching the image */
 }
 
 /* Style for Bad Apples (non-winning apples) */
-.apple.bad-apple {
-    background-image: url('Images/bad-apple.png');
-    background-size: cover;
-    background-position: center;
+.apple.bad-apple img {
+    content: url('Images/bad-apple.png');
 }
 
 /* Style for Good Apple (winning apple) */
-.apple.winning-apple {
-    background-image: url('Images/apple.png');
-    background-size: cover;
-    background-position: center;
+.apple.winning-apple img {
+    content: url('Images/apple.png');
 }
