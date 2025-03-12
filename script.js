@@ -77,9 +77,9 @@ function nextLevel() {
         // Check if it's the winning apple
         if (i === winningIndex) {
             apple.dataset.winning = "true";
-            apple.innerHTML = "<img src='./images/good-apple.png' alt='Apple' onerror='this.onerror=null; this.src=\"images/fallback-good-apple.png\"' />";
+            apple.innerHTML = "<img src='./images/good-apple.png' alt='Apple'
         } else {
-            apple.innerHTML = "<img src='./images/bad-apple.png' alt='Bad Apple' onerror='this.onerror=null; this.src=\"images/fallback-bad-apple.png\"' />";
+            apple.innerHTML = "<img src='./images/bad-apple.png' alt='Bad Apple' 
             apple.classList.add("bad-apple");  // Optional: special class for bad apples
         }
 
