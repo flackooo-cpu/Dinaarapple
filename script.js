@@ -61,14 +61,14 @@ function nextLevel() {
             currentLevel = 0;
             gameContainer.classList.add("hidden");
             platformSelection.classList.remove("hidden");
-        }, 10 * 60 * 1000);
+        }, 10 * 60 * 1000); // 10-minute cooldown
         return;
     }
 
     gameBoard.innerHTML = "";
     levelText.innerText = `Level ${levels[currentLevel].level} (x${levels[currentLevel].multiplier})`;
 
-    let winningIndex = Math.floor(Math.random() * 5);
+    let winningIndex = Math.floor(Math.random() * 5); // Randomly pick the winning apple
 
     for (let i = 0; i < 5; i++) {
         const apple = document.createElement("div");
@@ -76,29 +76,37 @@ function nextLevel() {
 
         const img = document.createElement("img");
 
-        // Check if it's the winning apple
+        // Check if this is the winning apple
         if (i === winningIndex) {
             apple.dataset.winning = "true";
             img.src = 'images/good-apple.png'; // Set the good apple image source
             img.alt = 'Good Apple';
+
+            // If the good apple image loads successfully
             img.onload = () => {
                 console.log("Good Apple loaded successfully");
             };
-            img.onerror = function() { 
+
+            // If the good apple image fails to load
+            img.onerror = function() {
                 console.error("Good Apple image failed to load!");
-                this.src = 'images/fallback-good-apple.png'; // Fallback if image fails to load
+                this.src = 'images/fallback-good-apple.png'; // Fallback image if loading fails
             };
         } else {
             img.src = 'images/bad-apple.png'; // Set the bad apple image source
             img.alt = 'Bad Apple';
+
+            // If the bad apple image loads successfully
             img.onload = () => {
                 console.log("Bad Apple loaded successfully");
             };
+
+            // If the bad apple image fails to load
             img.onerror = function() {
                 console.error("Bad Apple image failed to load!");
-                this.src = 'images/fallback-bad-apple.png'; // Fallback if image fails to load
+                this.src = 'images/fallback-bad-apple.png'; // Fallback image if loading fails
             };
-            apple.classList.add("bad-apple"); // Optional: special class for bad apples
+            apple.classList.add("bad-apple"); // Optional: Special class for bad apples
         }
 
         apple.appendChild(img); // Append the image to the apple div
@@ -118,12 +126,16 @@ generateBtn.addEventListener("click", () => {
             const img = apple.querySelector("img");
             img.src = 'images/good-apple.png'; // Ensure the winning apple is shown
             img.alt = 'Winning Apple';
+
+            // If the winning apple image loads successfully
             img.onload = () => {
                 console.log("Winning Apple loaded successfully");
             };
-            img.onerror = function() { 
+
+            // If the winning apple image fails to load
+            img.onerror = function() {
                 console.error("Winning Apple image failed to load!");
-                this.src = 'images/fallback-good-apple.png'; // Fallback if image fails to load
+                this.src = 'images/fallback-good-apple.png'; // Fallback image if loading fails
             };
             revealed = true;
         }
@@ -134,4 +146,3 @@ generateBtn.addEventListener("click", () => {
         nextLevel();
     }, 1000);
 });
-
