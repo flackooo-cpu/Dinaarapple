@@ -53,7 +53,7 @@ button {
 
 /* Style for Good Apple (winning apple) */
 .apple.winning-apple {
-    background-image: url('Images/good-apple.png');
+    background-image: url('Images/apple.png');
     background-size: cover;
     background-position: center;
 }
