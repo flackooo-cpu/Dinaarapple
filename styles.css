@@ -53,5 +53,5 @@ button {
 
 /* Style for Good Apple (winning apple) */
 .apple.winning-apple img {
-    content: url('Images/apple.png');
+    content: url('Images/good-apple.png');
 }
