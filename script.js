@@ -77,7 +77,7 @@ function nextLevel() {
         // Check if it's the winning apple
         if (i === winningIndex) {
             apple.dataset.winning = "true";
-            apple.innerHTML = "<img src='images/good-apple.png' alt='Apple' onerror='this.onerror=null; this.src=\"images/fallback-apple.png\"' />";
+            apple.innerHTML = "<img src='images/good-apple.png' alt='Apple' onerror='this.onerror=null; this.src=\"images/fallback-good-apple.png\"' />";
         } else {
             apple.innerHTML = "<img src='images/bad-apple.png' alt='Bad Apple' onerror='this.onerror=null; this.src=\"images/fallback-bad-apple.png\"' />";
             apple.classList.add("bad-apple");  // Optional: special class for bad apples
@@ -96,7 +96,7 @@ generateBtn.addEventListener("click", () => {
     apples.forEach(apple => {
         if (!revealed && apple.dataset.winning === "true") {
             apple.classList.add("revealed");
-            apple.innerHTML = "<img src='images/good-apple.png' alt='Apple' onerror='this.onerror=null; this.src=\"images/fallback-apple.png\"' />";  // Winning apple shown
+            apple.innerHTML = "<img src='images/good-apple.png' alt='Apple' onerror='this.onerror=null; this.src=\"images/fallback-good-apple.png\"' />";  // Winning apple shown
             revealed = true;
         }
     });
