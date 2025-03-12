@@ -69,7 +69,7 @@ function nextLevel() {
     levelText.innerText = `Level ${levels[currentLevel].level} (x${levels[currentLevel].multiplier})`;
 
     let winningIndex = Math.floor(Math.random() * 5);
-    
+
     for (let i = 0; i < 5; i++) {
         const apple = document.createElement("div");
         apple.classList.add("apple");
@@ -79,15 +79,14 @@ function nextLevel() {
         // Check if it's the winning apple
         if (i === winningIndex) {
             apple.dataset.winning = "true";
-            img.src = 'images/good-apple.png'; // Winning apple image
+            img.src = 'images/good-apple.png'; // Good apple image
             img.alt = 'Good Apple';
             img.onerror = function() { this.src = 'images/fallback-good-apple.png'; }; // Fallback image
-            apple.classList.add("good-apple");  // Optional: special class for good apple
-        }
+        } else {
             img.src = 'images/bad-apple.png'; // Bad apple image
             img.alt = 'Bad Apple';
             img.onerror = function() { this.src = 'images/fallback-bad-apple.png'; }; // Fallback image
-            apple.classList.add("bad-apple");  // Optional: special class for bad apples
+            apple.classList.add("bad-apple"); // Optional: special class for bad apples
         }
 
         apple.appendChild(img); // Add the image to the apple div
@@ -105,7 +104,7 @@ generateBtn.addEventListener("click", () => {
         if (!revealed && apple.dataset.winning === "true") {
             apple.classList.add("revealed");
             const img = apple.querySelector("img");
-            img.src = 'images/good-apple.png';  // Ensure the winning apple is shown
+            img.src = 'images/good-apple.png'; // Ensure the winning apple is shown
             img.alt = 'Winning Apple';
             img.onerror = function() { this.src = 'images/fallback-good-apple.png'; }; // Fallback image
             revealed = true;
@@ -117,3 +116,4 @@ generateBtn.addEventListener("click", () => {
         nextLevel();
     }, 1000);
 });
+
