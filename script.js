@@ -80,7 +80,8 @@ function nextLevel() {
             apple.innerHTML = "<img src='images/apple.png' alt='Apple' />";  // Winning apple
         } else {
             apple.innerHTML = "<img src='images/bad-apple.png' alt='Bad Apple' />";  // Bad apple
-          
+            apple.classList.add("bad-apple");  // Optional: special class for bad apples
+        }
 
         gameBoard.appendChild(apple);
     }
