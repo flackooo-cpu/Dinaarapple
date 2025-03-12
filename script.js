@@ -82,7 +82,8 @@ function nextLevel() {
             img.src = 'images/good-apple.png'; // Winning apple image
             img.alt = 'Good Apple';
             img.onerror = function() { this.src = 'images/fallback-good-apple.png'; }; // Fallback image
-        } else {
+            apple.classList.add("good-apple");  // Optional: special class for good apple
+        }
             img.src = 'images/bad-apple.png'; // Bad apple image
             img.alt = 'Bad Apple';
             img.onerror = function() { this.src = 'images/fallback-bad-apple.png'; }; // Fallback image
