@@ -30,7 +30,30 @@ button {
     margin-top: 20px;
 }
 
+.apple {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
 .apple img {
     width: 80px; /* Adjust apple size */
     height: auto;
+}
+
+/* Style for Bad Apples (non-winning apples) */
+.apple.bad-apple {
+    background-image: url('Images/bad-apple.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Style for Good Apple (winning apple) */
+.apple.winning-apple {
+    background-image: url('Images/good-apple.png');
+    background-size: cover;
+    background-position: center;
 }
